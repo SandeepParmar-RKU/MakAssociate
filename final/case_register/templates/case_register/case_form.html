@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'case_register/css/base.css' %}">
+    {% if user.is_authenticated  %}
+    <a class="btn btn-dark" href="{% url 'logout'  %}">Logout</a>
+    <form action="" method = "POST" autocomplete="off" >
+        {% csrf_token %}
+           <div class="row">
+            <div class="col-md-5" id="date">
+                {{form.cc_date|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.sourcelist|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.case_id|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.customer_name|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.customer_number|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.alt_number|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.companylist|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.vehicle_number|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+               {{form.vehicle_type|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.payment_type|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.company_cash|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.case_mode|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.amount|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.pay_date|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+               {{form.vehicle_from|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+               {{form.location|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.status|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.company_kilometer|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.surveyorlist|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.inspection_type|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.surveyor_kilometer|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.surveyor_cash|as_crispy_field}}
+            </div>
+             <div class="col-md-5" id="date">
+                {{form.cd_date|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.time|as_crispy_field}}
+            </div>
+             <div class="col-md-5">
+                {{form.remarks|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i>Submit</button>    
+            </div>
+           
+        </div>
+    </form>
+    {% else %}
+          <a class="btn btn-dark" href="{% url 'login'  %}">Login Here! </a>
+    {% endif %}
+<div class="made-with-love">
+  Made with
+  <i>♥</i> by
+  <a target="_blank" href="https://www.instagram.com/itz.me.sandeep/">Sandeep Parmar</a>
+</div>
+
+
+{% endblock content %}
