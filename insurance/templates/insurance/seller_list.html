@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block seller %}
+	    <form class="form-inline my-2 my-lg-0" method="GET">
+			{{seller.form}}
+            <button class="btn btn-dark my-2 my-sm-0 m-3 " type="submit">Apply</button>
+        </form>
+{% endblock seller %}
+
+{% block content %}
+<div class="container">
+<h1 class="justify-content-center " style="text-align:center"><span class="blue   "></span>Seller's<span class="blue"></span> <span class="yellow">List</span></h1>
+
+<table class="table table-dark container">
+  <thead>
+    <tr>
+      <th scope="col">Buyer</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Payout Date</th>
+      <th scope="col">Net</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Credit</th>
+      <th></th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    {% for seller in seller.qs %}
+      <td>{{seller.seller}}</td>
+      <td>{{seller.buyer}}</td>
+      <td>{{seller.sellerPayout}}</td>
+      <td>{{seller.sellernet}}</td>
+      <td>{{seller.selleramount}}</td>
+      <td>{{seller.sellerdebit}}</td>
+      	<td>
+					<a href="{% url 'insurance:updatepolicy' seller.id %}" class="btn btn-lg  text-secondary px-0"><i class="far fa-edit fa-lg"></i></a>
+			</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}
