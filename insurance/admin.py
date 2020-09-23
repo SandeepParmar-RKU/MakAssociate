@@ -20,7 +20,7 @@ class BuyerAdmin(admin.ModelAdmin):
 
     search_fields = ('buyer_name',)
     list_filter = ('buyer_name',)
-    list_display = ('buyer_name','buyernet','buyertotalamount')
+    list_display = ('buyer_name','buyerDebitTotal')
 
 
 @admin.register(Seller)
@@ -28,7 +28,7 @@ class SellerAdmin(admin.ModelAdmin):
 
     search_fields = ('seller_name',)
     list_filter = ('seller_name',)
-    list_display = ('seller_name','sellernet','sellertotalamount')
+    list_display = ('seller_name','sellerDebitTotal')
 
 
 # Register your models here.

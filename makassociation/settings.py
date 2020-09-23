@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'bootstrap_datepicker_plus',
     'formtools',
     'import_export',
-    'insurance',
+    'insurance.apps.InsuranceConfig',
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 BOOTSTRAP4 = {

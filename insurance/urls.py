@@ -17,5 +17,4 @@ urlpatterns = [
     path('sellers/',views.SellerListView.as_view(), name='sellers'),
     path('buyercollection/',views.BuyerCollectionCreateView.as_view(), name='buyercollectionform'),
     path('sellercollection/',views.SellerCollectionCreateView.as_view(), name='sellercollectionform'),
-  
 ]

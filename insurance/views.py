@@ -27,6 +27,23 @@ class BuyerListView(generic.ListView):
         context['buyer']=BuyerFilter(self.request.GET,queryset=Policy.objects.all())
         return context
 
+# class BuyerTotals(generic.ListView):
+#     model = Buyer
+#     context_object_name = 'buyer'
+#     queryset = Buyer.objects.all()
+#     template_name = 'insurance/buyertotal.html'
+
+#     def get_context_data(self, **kwargs):
+#         id_ = self.kwargs.get('id')
+#         context = super(BuyerTotals,self).get_context_data(**kwargs)
+#         q = Buyer.objects.filter(policybuyer__buyer_id = id_).annotate(total=Sum('policybuyer__buyeramount',))
+ 
+#         context = { 
+#             'object_list':q,
+          
+#         }
+#         return context
+    
 
 
 class SellerListView(generic.ListView):
