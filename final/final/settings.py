@@ -25,7 +25,7 @@ SECRET_KEY = '9p6gpw=-%=ks*ls00x*n18t4yi@nr)vy^_#mby#3-o8wph**_('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['makasso.pythonanywhere.com','www.makasso.pythonanywhere.com/']
 
 
 # Application definition
@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'bootstrapform',
     'case_register',
     'import_export',
-   
+    'rangefilter',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -80,7 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'final.wsgi.application'
 
-
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 15000
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -122,7 +123,7 @@ TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 

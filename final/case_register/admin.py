@@ -7,6 +7,7 @@ import openpyxl
 from openpyxl.utils import get_column_letter
 from import_export.admin import ImportExportModelAdmin
 from import_export import resources
+from rangefilter.filter import DateRangeFilter, DateTimeRangeFilter
 #def export_xlsx(modeladmin, request, queryset):
 
  #   response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
@@ -94,14 +95,19 @@ from import_export import resources
 export_xlsx.short_description = u"Export XLSX"
 '''
 
+@admin.register(Surveyorlist)
+class listadmin(admin.ModelAdmin):
+  fields = ['name']
+  list_display = ['name']
+  search_fields = ['name']
 # @admin.register(Case)
 class XLadmin(ImportExportModelAdmin):
     #fields = ['name']
     resource_class = CaseResource
     #fields = ['cc_date','sourcelist','case_id','customer_name','customer_number','alt_number','companylist','vehicle_number','vehicle_type','payment_type','company_cash','case_mode','amount','pay_date','vehicle_from','location','company_kilometer','surveyorlist__name','inspection_type','surveyor_kilometer','surveyor_cash','cd_date','time','remarks','status']
-    search_fields = ('vehicle_number','location')
+    search_fields = ('vehicle_number','location','case_id')
     list_display = ('cc_date','sourcelist','case_id','vehicle_number','location','surveyorlist','status','remarks')
-    list_filter = ('sourcelist','status','cd_date')
+    list_filter = (('cd_date', DateRangeFilter),'sourcelist','status','surveyorlist__name',)
     #class CaseAdmin(admin.ModelAdmin):
     #   fields = ['cc_date','sourcelist','case_id','customer_name','customer_number','alt_number','companylist','vehicle_number','vehicle_type','payment_type','company_cash','case_mode','amount','pay_date','vehicle_from','location','company_kilometer','surveyorlist','inspection_type','surveyor_kilometer','surveyor_cash','cd_date','time','remarks','status']
     #  search_fields = ('vehicle_number','location')
@@ -110,14 +116,11 @@ class XLadmin(ImportExportModelAdmin):
         #list_filter = ('cc_date','sourcelist','status',)
     # actions = [export_xlsx]
 
-@admin.register(Surveyorlist)
-class listadmin(admin.ModelAdmin):
-  fields = ['name']
-  list_display = ['name']
-  search_fields = ['name']
+
 
 
     #list_filter = ('cc_date','sourcelist','status',)
 admin.site.register(Case, XLadmin)
+
 #admin.site.register(XLadmin)
 #admin.site.register(Surveyorlist)

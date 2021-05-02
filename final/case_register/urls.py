@@ -6,7 +6,7 @@ urlpatterns = [
     path('',views.HomePage.as_view(), name="home"),
     path('case/',views.case_form,name='case_insert'),
     path('list/',views.case_list,name='case_list'),
-    path('<int:id>case/',views.case_form,name='case_update'),
+    path('<str:pk>case/',views.case_update,name='case_update'),
     #path('test/', views.TestPage.as_view(), name="test"),
     #path('thanks/', views.ThanksPage.as_view(), name="thanks"),
 

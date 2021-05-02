@@ -1,4 +1,4 @@
-  
+
 {% load i18n admin_urls %}
 
 {% block object-tools-items %}
@@ -8,9 +8,10 @@
     <a href="{% add_preserved_filters add_url is_popup to_field %}" class="addlink">
       {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
     </a>
+
   </li>
   <li>
-    
+
   </li>
   {% endif %}
 {% endblock %}
